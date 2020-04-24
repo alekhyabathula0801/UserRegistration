@@ -33,10 +33,24 @@ email(){
 		email
 	fi
 }
+mobileNumber(){
+	echo Mobile number must have country code follow by space and 10 digit number
+	mobileNumberPat='^[1-9]{2}[ ]{1}[0-9]{10}$'
+        read -p "Enter mobile number " mobileNumber
+        if [[ $mobileNumber =~ $mobileNumberPat ]]
+        then
+                echo Valid mobileNumber
+        else
+                echo Invalid mobileNumber
+                mobileNumber
+        fi
+
+}
 userRegistration(){
 	namePat='^[A-Z][a-z]{2,}$'
 	firstName
 	lastName
 	email
+	mobileNumber
 }
 userRegistration

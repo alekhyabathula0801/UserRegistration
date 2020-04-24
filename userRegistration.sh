@@ -46,11 +46,24 @@ mobileNumber(){
         fi
 
 }
+password(){
+	echo Password must contain 8 characters
+	passwordPat='[0-9a-zA-Z]{8,}'
+	read -p "Enter password " password
+        if [[ $password =~ $passwordPat ]]
+        then
+                echo Valid password
+        else
+                echo Invalid password
+                password
+        fi
+}
 userRegistration(){
 	namePat='^[A-Z][a-z]{2,}$'
 	firstName
 	lastName
 	email
 	mobileNumber
+	password
 }
 userRegistration

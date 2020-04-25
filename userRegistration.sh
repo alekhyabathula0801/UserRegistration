@@ -47,10 +47,12 @@ mobileNumber(){
 }
 password(){
 	echo Password must contain 8 characters
-	echo Password must contain atleat one upper case 
+	echo Password must contain atleast one upper case 
+	echo Password must contain atleast one numeric value
 	passwordUpperCasePat='[A-Z]+'
+	passwordNumericValuePat='[0-9]+'
 	read -p "Enter password " password
-        if [[ $password =~ $passwordUpperCasePat && ${#password} -ge 8 ]]
+        if [[ $password =~ $passwordNumericValuePat && $password =~ $passwordUpperCasePat && ${#password} -ge 8 ]]
         then
                 echo Valid password
         else

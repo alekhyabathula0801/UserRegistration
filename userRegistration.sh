@@ -23,7 +23,7 @@ lastName(){
         fi
 }
 email(){
-	emailPat='^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})$'
+	emailPat='^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$'
 	read -p "Enter Email Id " email
 	if [[ $email =~ $emailPat ]]
 	then
@@ -39,18 +39,18 @@ mobileNumber(){
         read -p "Enter mobile number " mobileNumber
         if [[ $mobileNumber =~ $mobileNumberPat ]]
         then
-                echo Valid mobileNumber
+                echo Valid mobile number
         else
-                echo Invalid mobileNumber
+                echo Invalid mobile number
                 mobileNumber
         fi
-
 }
 password(){
 	echo Password must contain 8 characters
-	passwordPat='[0-9a-zA-Z]{8,}'
+	echo Password must contain atleat one upper case 
+	passwordUpperCasePat='[A-Z]+'
 	read -p "Enter password " password
-        if [[ $password =~ $passwordPat ]]
+        if [[ $password =~ $passwordUpperCasePat && ${#password} -ge 8 ]]
         then
                 echo Valid password
         else

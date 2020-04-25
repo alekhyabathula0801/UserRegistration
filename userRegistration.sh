@@ -47,12 +47,12 @@ mobileNumber(){
 }
 password(){
 	echo Password must contain 8 characters
-	echo Password must contain atleast one upper case 
-	echo Password must contain atleast one numeric value
-	echo Password must contain exactly one special character
+	echo Password must contain atleast one Upper case 
+	echo Password must contain atleast one Numeric value
+	echo Password must contain exactly one Special character
 	passwordUpperCasePat='[A-Z]+'
 	passwordNumericValuePat='[0-9]+'
-	passwordSpecialCharacterPat='[^0-9a-zA-Z]{1}?'
+	passwordSpecialCharacterPat='[^0-9a-zA-Z]{1}'
 	read -p "Enter password " password
         if [[ $password =~ $passwordSpecialCharacterPat && $password =~ $passwordNumericValuePat && $password =~ $passwordUpperCasePat && ${#password} -ge 8 ]];
         then

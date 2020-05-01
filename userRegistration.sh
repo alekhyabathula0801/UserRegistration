@@ -1,6 +1,6 @@
 #!/bin/bash -x
 shopt -s extglob
-firstName(){
+validateFirstName(){
 	echo First name must start with capital letter and minimum 3 characters are requried
 	read -p "Enter first name " firstName
 	if [[ $firstName =~ $namePat ]]
@@ -11,7 +11,7 @@ firstName(){
 		firstName
 	fi
 }
-lastName(){
+validateLastName(){
         echo Last name must start with capital letter and minimum 3 characters are requried
         read -p "Enter last name " lastName
         if [[ $lastName =~ $namePat ]]
@@ -22,7 +22,7 @@ lastName(){
 		lastName
         fi
 }
-email(){
+validateEmailId(){
 	emailPat='^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$'
 	read -p "Enter Email Id " email
 	if [[ $email =~ $emailPat ]]
@@ -33,7 +33,7 @@ email(){
 		email
 	fi
 }
-mobileNumber(){
+validateMobileNumber(){
 	echo Mobile number must have country code follow by space and 10 digit number
 	mobileNumberPat='^[1-9]{2}[ ]{1}[0-9]{10}$'
         read -p "Enter mobile number " mobileNumber
@@ -45,7 +45,7 @@ mobileNumber(){
                 mobileNumber
         fi
 }
-password(){
+validatePassword(){
 	echo Password must contain 8 characters
 	echo Password must contain atleast one Upper case 
 	echo Password must contain atleast one Numeric value
@@ -62,12 +62,12 @@ password(){
                 password
         fi
 }
-userRegistration(){
+validateUserRegistration(){
 	namePat='^[A-Z][a-z]{2,}$'
-	firstName
-	lastName
-	email
-	mobileNumber
-	password
+	validateFirstName
+	validateLastName
+	validateEmailId
+	validateMobileNumber
+	validatePassword
 }
-userRegistration
+validateUserRegistration
